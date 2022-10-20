@@ -63,13 +63,12 @@ class Hatake {
     }
   }
   nyoki() {
-    this.masume.forEach((gyo, i) => {
-      gyo.forEach((masu, j) => {
+    this.masume.forEach((gyo) => {
+      gyo.forEach((masu) => {
         if (masu == null || masu.seichoSpeed == null) return;
-        if (secondsKeika >= masu.seichoLast + masu.seichoSpeed) {
-          masu.seicho++;
-          masu.seichoLast = secondsKeika;
-        }
+        if (secondsKeika < masu.seichoLast + masu.seichoSpeed) return;
+        masu.seicho++;
+        masu.seichoLast = secondsKeika;
       });
     });
   }
