@@ -9,7 +9,7 @@ function setup() {
   hatake = new Hatake();
   hatake.masume[1][1] = new TomatoMasu();
   hatake.masume[4][6] = new NinjinMasu();
-  hatake.masume[6][3] = new DaikonMasu();
+  hatake.masume[6][3] = new NasuMasu();
   grass = new KarappoMasu();
 }
 
@@ -81,6 +81,8 @@ class Masu {
     this.seichoLast = 0; // ゲーム開始から何秒後に最後に成長したか
     this.seichoSpeed = null; // 何秒ごとに成長するか（数値が低い方が速い）
     this.seicho = null; // 現在、どこまで成長しているか
+    this.kansei = 10; // どこまで成長したら完成するか
+    this.emoji = "✅"; // 完成になっている時に表示される絵文字
   }
   draw(x, y) {
     fill(this.tileColor);
@@ -98,7 +100,9 @@ class Masu {
       textSize(hatake.tileHeight * 0.5);
       textAlign(CENTER);
       fill(0);
-      text(this.seicho, x, y + hatake.tileHeight * 0.7);
+      let moji = this.seicho;
+      if (this.seicho >= this.kansei) moji = this.emoji;
+      text(moji, x, y + hatake.tileHeight * 0.7);
     }
   }
 }
@@ -107,20 +111,23 @@ class TomatoMasu extends Masu {
     super("#f00000"); // 赤
     this.seichoSpeed = 1;
     this.seicho = 0;
+    this.emoji = "🍅";
   }
 }
 class NinjinMasu extends Masu {
   constructor() {
     super("#f08000"); // オレンジ
-    this.seichoSpeed = 2;
-    this.seicho = 0;
-  }
-}
-class DaikonMasu extends Masu {
-  constructor() {
-    super("#dddddd"); // ほぼ白
     this.seichoSpeed = 3;
     this.seicho = 0;
+    this.emoji = "🥕";
+  }
+}
+class NasuMasu extends Masu {
+  constructor() {
+    super("#c000c0"); // 紫
+    this.seichoSpeed = 2;
+    this.seicho = 0;
+    this.emoji = "🍆";
   }
 }
 class KarappoMasu extends Masu {
