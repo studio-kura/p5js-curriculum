@@ -2,16 +2,24 @@ const canvasWidth = 600;
 const canvasHeight = 400;
 let hatake;
 let grass;
+let secondsKeika;
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
+  secondsKeika = 0;
   hatake = new Hatake();
   hatake.masume[1][1] = new TomatoMasu();
   hatake.masume[4][6] = new NinjinMasu();
+  hatake.masume[6][3] = new DaikonMasu();
   grass = new KarappoMasu();
 }
 
 function draw() {
   background("#66ccff");
+  const thisSecond = ~~(millis() / 1000);
+  if (thisSecond > secondsKeika) {
+    secondsKeika = thisSecond;
+    hatake.nyoki();
+  }
   hatake.display();
 }
 
@@ -54,10 +62,25 @@ class Hatake {
       masu.draw(x, y);
     }
   }
+  nyoki() {
+    this.masume.forEach((gyo, i) => {
+      gyo.forEach((masu, j) => {
+        if (masu == null || masu.seichoSpeed == null) return;
+        if (secondsKeika >= masu.seichoLast + masu.seichoSpeed) {
+          masu.seicho++;
+          masu.seichoLast = secondsKeika;
+        }
+      });
+    });
+  }
 }
 class Masu {
   constructor(tileColor) {
     this.tileColor = tileColor;
+    this.started = 0; // ゲーム開始から何秒後に設置されたか
+    this.seichoLast = 0; // ゲーム開始から何秒後に最後に成長したか
+    this.seichoSpeed = null; // 何秒ごとに成長するか（数値が低い方が速い）
+    this.seicho = null; // 現在、どこまで成長しているか
   }
   draw(x, y) {
     fill(this.tileColor);
@@ -71,16 +94,33 @@ class Masu {
       x - hatake.tileWidth / 2,
       y + hatake.tileHeight / 2
     );
+    if (this.seicho !== null) {
+      textSize(hatake.tileHeight * 0.5);
+      textAlign(CENTER);
+      fill(0);
+      text(this.seicho, x, y + hatake.tileHeight * 0.7);
+    }
   }
 }
 class TomatoMasu extends Masu {
   constructor() {
     super("#f00000"); // 赤
+    this.seichoSpeed = 1;
+    this.seicho = 0;
   }
 }
 class NinjinMasu extends Masu {
   constructor() {
-    super("#f0c000"); // オレンジ
+    super("#f08000"); // オレンジ
+    this.seichoSpeed = 2;
+    this.seicho = 0;
+  }
+}
+class DaikonMasu extends Masu {
+  constructor() {
+    super("#dddddd"); // ほぼ白
+    this.seichoSpeed = 3;
+    this.seicho = 0;
   }
 }
 class KarappoMasu extends Masu {
