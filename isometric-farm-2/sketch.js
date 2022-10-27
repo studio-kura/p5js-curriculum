@@ -1,3 +1,6 @@
+// これを index.html の <head> に追加します
+// <script defer src="https://unpkg.com/p5.collide2d"></script>;
+// 詳細: https://github.com/bmoren/p5.collide2D
 const canvasWidth = 600;
 const canvasHeight = 400;
 let hatake;
@@ -65,8 +68,7 @@ class Hatake {
   display() {
     this.masume.forEach((gyo, i) => {
       gyo.forEach((masu, j) => {
-        this.drawTile(
-          masu,
+        masu.draw(
           this.x + (j * this.tileWidth) / 2 - (i * this.tileWidth) / 2,
           this.y +
             i * this.tileHeight +
@@ -75,9 +77,6 @@ class Hatake {
         );
       });
     });
-  }
-  drawTile(masu, x, y) {
-    masu.draw(x, y);
   }
   nyoki() {
     this.masume.forEach((gyo) => {
@@ -106,8 +105,8 @@ class Masu {
   }
   draw(x, y) {
     if (this.poly === null) return;
-
-    fill(this.tileColor);
+    const hit = collidePointPoly(mouseX, mouseY, this.poly);
+    fill(hit ? "#df8" : this.tileColor);
     beginShape();
     for (const { x, y } of this.poly) vertex(x, y);
     endShape(CLOSE);
