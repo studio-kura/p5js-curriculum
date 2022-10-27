@@ -1,7 +1,6 @@
 const canvasWidth = 600;
 const canvasHeight = 400;
 let hatake;
-let grass;
 let secondsKeika;
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
@@ -11,7 +10,6 @@ function setup() {
   hatake.masume[4][6] = new NinjinMasu();
   hatake.masume[6][3] = new NasuMasu();
   hatake.haichi();
-  grass = new KarappoMasu();
 }
 
 function draw() {
@@ -45,25 +43,22 @@ class Hatake {
   haichi() {
     this.masume.forEach((gyo, i) => {
       gyo.forEach((masu, j) => {
-        if (masu === null) return;
+        if (masu == null) {
+          this.masume[i][j] = new KarappoMasu();
+          masu = this.masume[i][j];
+        }
         const x = this.x + (j * this.tileWidth) / 2 - (i * this.tileWidth) / 2;
         const y =
           this.y +
           i * this.tileHeight +
           (j * this.tileHeight) / 2 -
           (i * this.tileHeight) / 2;
-        let hishigata = [];
-        hishigata[0] = createVector(x, y);
-        hishigata[1] = createVector(
-          x + hatake.tileWidth / 2,
-          y + hatake.tileHeight / 2
-        );
-        hishigata[2] = createVector(x, y + hatake.tileHeight);
-        hishigata[3] = createVector(
-          x - hatake.tileWidth / 2,
-          y + hatake.tileHeight / 2
-        );
-        masu.setPoly(hishigata);
+        masu.setPoly([
+          createVector(x, y),
+          createVector(x + hatake.tileWidth / 2, y + hatake.tileHeight / 2),
+          createVector(x, y + hatake.tileHeight),
+          createVector(x - hatake.tileWidth / 2, y + hatake.tileHeight / 2),
+        ]);
       });
     });
   }
@@ -82,11 +77,7 @@ class Hatake {
     });
   }
   drawTile(masu, x, y) {
-    if (masu === null) {
-      grass.draw(x, y);
-    } else {
-      masu.draw(x, y);
-    }
+    masu.draw(x, y);
   }
   nyoki() {
     this.masume.forEach((gyo) => {
@@ -111,21 +102,16 @@ class Masu {
     this.poly = null;
   }
   setPoly(poly) {
-    console.log(poly);
     this.poly = poly;
   }
   draw(x, y) {
+    if (this.poly === null) return;
+
     fill(this.tileColor);
-    quad(
-      x,
-      y,
-      x + hatake.tileWidth / 2,
-      y + hatake.tileHeight / 2,
-      x,
-      y + hatake.tileHeight,
-      x - hatake.tileWidth / 2,
-      y + hatake.tileHeight / 2
-    );
+    beginShape();
+    for (const { x, y } of this.poly) vertex(x, y);
+    endShape(CLOSE);
+
     if (this.seicho !== null) {
       textSize(hatake.tileHeight * 0.5);
       textAlign(CENTER);
