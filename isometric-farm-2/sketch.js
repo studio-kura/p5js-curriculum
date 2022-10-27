@@ -4,7 +4,9 @@
 const canvasWidth = 600;
 const canvasHeight = 400;
 let hatake;
+let zaiko;
 let secondsKeika;
+
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
   secondsKeika = 0;
@@ -13,6 +15,7 @@ function setup() {
   hatake.masume[4][6] = new NinjinMasu();
   hatake.masume[6][3] = new NasuMasu();
   hatake.haichi();
+  zaiko = new Zaiko();
 }
 
 function draw() {
@@ -23,6 +26,11 @@ function draw() {
     hatake.nyoki();
   }
   hatake.display();
+  zaiko.display();
+}
+
+function mouseClicked() {
+  hatake.clicked();
 }
 
 class Hatake {
@@ -46,7 +54,7 @@ class Hatake {
   haichi() {
     this.masume.forEach((gyo, i) => {
       gyo.forEach((masu, j) => {
-        if (masu == null) {
+        if (masu === null) {
           this.masume[i][j] = new KarappoMasu();
           masu = this.masume[i][j];
         }
@@ -81,10 +89,18 @@ class Hatake {
   nyoki() {
     this.masume.forEach((gyo) => {
       gyo.forEach((masu) => {
-        if (masu == null || masu.seichoSpeed == null) return;
+        if (masu === null || masu.seichoSpeed === null) return;
         if (secondsKeika < masu.seichoLast + masu.seichoSpeed) return;
         masu.seicho++;
         masu.seichoLast = secondsKeika;
+      });
+    });
+  }
+  clicked() {
+    this.masume.forEach((gyo, i) => {
+      gyo.forEach((masu, j) => {
+        const hit = collidePointPoly(mouseX, mouseY, masu.poly);
+        if (hit) this.masume[i][j].clicked();
       });
     });
   }
@@ -120,6 +136,13 @@ class Masu {
       text(moji, x, y + hatake.tileHeight * 0.7);
     }
   }
+  clicked() {
+    if (this.seicho === null) return;
+    if (this.seicho >= this.kansei) {
+      this.seicho = 0;
+      zaiko[this.zaikoType]++;
+    }
+  }
 }
 class TomatoMasu extends Masu {
   constructor() {
@@ -127,6 +150,7 @@ class TomatoMasu extends Masu {
     this.seichoSpeed = 1;
     this.seicho = 0;
     this.emoji = "🍅";
+    this.zaikoType = "tomato";
   }
 }
 class NinjinMasu extends Masu {
@@ -135,6 +159,7 @@ class NinjinMasu extends Masu {
     this.seichoSpeed = 3;
     this.seicho = 0;
     this.emoji = "🥕";
+    this.zaikoType = "ninjin";
   }
 }
 class NasuMasu extends Masu {
@@ -143,10 +168,28 @@ class NasuMasu extends Masu {
     this.seichoSpeed = 2;
     this.seicho = 0;
     this.emoji = "🍆";
+    this.zaikoType = "nasu";
   }
 }
 class KarappoMasu extends Masu {
   constructor() {
     super("#00a000"); // 緑
+  }
+}
+class Zaiko {
+  constructor() {
+    this.tomato = 0;
+    this.ninjin = 0;
+    this.nasu = 0;
+  }
+
+  display() {
+    const zaikoString =
+      this.tomato + " 🍅   " + this.ninjin + " 🥕  " + this.nasu + " 🍆  ";
+    const mojiTakasa = hatake.tileHeight * 0.5;
+    textSize(mojiTakasa);
+    textAlign(RIGHT);
+    fill(0);
+    text(zaikoString, canvasWidth, mojiTakasa);
   }
 }
