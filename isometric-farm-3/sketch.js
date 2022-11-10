@@ -140,7 +140,9 @@ class Masu {
     }
   }
   clicked() {
-    if (this.seicho === null) return;
+    if (this.seicho === null) {
+      hatake.masume[this.i][this.j] = new TomatoMasu(this.i, this.j);
+    }
     if (this.seicho >= this.kansei) {
       this.seicho = 0;
       zaiko[this.zaikoType]++;
