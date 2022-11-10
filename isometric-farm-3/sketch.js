@@ -98,6 +98,9 @@ class Hatake {
       });
     });
   }
+  karappoNiSuru(i, j) {
+    this.masume[i][j] = new KarappoMasu(i, j);
+  }
   clicked() {
     this.masume.forEach((gyo, i) => {
       gyo.forEach((masu, j) => {
@@ -168,8 +171,8 @@ class Masu {
       hatake.masume[this.i][this.j] = newMasu;
     }
     if (this.seicho >= this.kansei) {
-      this.seicho = 0;
       zaiko[this.zaikoType]++;
+      hatake.karappoNiSuru(this.i, this.j);
     }
   }
 }
@@ -224,7 +227,7 @@ class Zaiko {
 }
 class ZaikoSelector {
   constructor() {
-    this.selected = 1;
+    this.selected = 0;
   }
 
   clicked() {
