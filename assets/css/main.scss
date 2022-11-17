@@ -1,6 +1,7 @@
 ---
 ---
-@import "minima";
+
+@import "{{ site.theme }}";
 
 .youtube-video-container {
   position: relative;
