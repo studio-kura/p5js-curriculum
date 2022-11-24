@@ -22,8 +22,8 @@ title: Studio Kura p5.js カリキュラム
 email: info@studiokura.com
 description: >- # this means to ignore newlines until "baseurl:"
   Studio Kuraで使われている子どもから大人までプログラミングが勉強になるp5.jsカリキュラム
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "https://studio-kura.github.io/p5js-curriculum/" # the subpath of your site, e.g. /blog
+url: "https://studio-kura.github.io/p5js-curriculum/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: studiokura
 github_username:  studio-kura
 
