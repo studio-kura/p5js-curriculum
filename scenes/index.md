@@ -13,8 +13,8 @@ permalink: /scenes/
     allowfullscreen
   ></iframe>
 </div>
-
-[ソースコード](sketch)
+<br />
+[動くスケッチ・ソースコード](sketch)
 
 ## draw関数、長すぎませんか？
 

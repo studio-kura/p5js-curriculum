@@ -3,6 +3,12 @@ layout: default
 title: 場面 - sketch
 permalink: /scenes/sketch
 ---
+<script src="sketch.js"></script>
+<div id="p5js_div"></div>
+<br />
+[説明・動画](./)
+
+
 ```js
 // ゲームの進行状況
 // 0: メニュー画面
@@ -21,6 +27,7 @@ var score;
 
 function setup() {
   createCanvas(400, 400);
+");
   background(127);
 }
 

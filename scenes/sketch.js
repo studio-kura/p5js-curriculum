@@ -14,7 +14,7 @@ var shikaku;
 var score;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400).parent("p5js_div");
   background(127);
 }
 
