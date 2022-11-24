@@ -5,4 +5,4 @@
 layout: home
 ---
 
-- [場面](scenes) ([ソースコード](sketch))
+- [場面](scenes) ([ソースコード](scenes/sketch))
