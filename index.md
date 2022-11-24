@@ -19,3 +19,5 @@ layout: home
   [動くスケッチ・ソースコード](poliblocks-1/sketch)
 - [29. __レスポンシブデザインで伸びる正方形のp5.jsスケッチを作ろう__](poliblocks-2)  
   [動くスケッチ・ソースコード](poliblocks-2/sketch)
+- [30. __PolyBlocksとp5.jsで作ったジェネレーティブアートNFTにプロパティを付けよう！__](poliblocks-3)  
+  [動くスケッチ・ソースコード](poliblocks-3/sketch)
