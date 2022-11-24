@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 場面
+title: ゲームのいろんな場面を関数で管理してdrawをスッキリさせましょう
 permalink: /scenes/
 ---
 <div class="youtube-video-container">

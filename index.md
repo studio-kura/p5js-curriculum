@@ -5,4 +5,7 @@
 layout: home
 ---
 
-- [場面](scenes) ([ソースコード](scenes/sketch))
+- [__23 ゲームのいろんな場面を関数で管理してdrawをスッキリさせましょう__](scenes)  
+	[動くスケッチ・ソースコード](scenes/sketch)
+- [__25 配列__](arrays)  
+  [動くスケッチ・ソースコード](arrays/sketch)
