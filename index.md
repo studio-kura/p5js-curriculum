@@ -17,3 +17,5 @@ layout: home
   [動くスケッチ・ソースコード](scroll2/sketch)
 - [28. __ジェネレーティブアートと、p5.jsでの作り方__](poliblocks-1)  
   [動くスケッチ・ソースコード](poliblocks-1/sketch)
+- [29. __レスポンシブデザインで伸びる正方形のp5.jsスケッチを作ろう__](poliblocks-2)  
+  [動くスケッチ・ソースコード](poliblocks-2/sketch)
