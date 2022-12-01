@@ -9,6 +9,8 @@ layout: home
 
 - [1. __キャンバスサイズ createCanvas__](basics/createCanvas)  
   [動くスケッチ・ソースコード](basics/createCanvas/sketch)
+- [2. __ellipse rect lineを使ってロボットを作ろう！__](basics/basic-shapes)  
+  [動くスケッチ・ソースコード](basics/basic-shapes/sketch)
 
 ## カリキュラム
 
