@@ -5,6 +5,13 @@
 layout: home
 ---
 
+## 基礎
+
+- [1. __キャンバスサイズ createCanvas__](basics/createCanvas)  
+  [動くスケッチ・ソースコード](basics/createCanvas/sketch)
+
+## カリキュラム
+
 - [23. __ゲームのいろんな場面を関数で管理してdrawをスッキリさせましょう__](scenes)  
   [動くスケッチ・ソースコード](scenes/sketch)
 - [24. __p5.jsでボタンを使いましょう！__](buttons)  
