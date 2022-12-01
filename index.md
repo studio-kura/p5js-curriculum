@@ -11,6 +11,8 @@ layout: home
   [動くスケッチ・ソースコード](basics/createCanvas/sketch)
 - [2. __ellipse rect lineを使ってロボットを作ろう！__](basics/basic-shapes)  
   [動くスケッチ・ソースコード](basics/basic-shapes/sketch)
+- [3. __fillとstrokeで描いた形や線に色をつけていく__](basics/fill-stroke)  
+  [動くスケッチ・ソースコード](basics/fill-stroke/sketch)
 
 ## カリキュラム
 
