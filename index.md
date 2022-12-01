@@ -13,6 +13,8 @@ layout: home
   [動くスケッチ・ソースコード](basics/basic-shapes/sketch)
 - [3. __fillとstrokeで描いた形や線に色をつけていく__](basics/fill-stroke)  
   [動くスケッチ・ソースコード](basics/fill-stroke/sketch)
+- [4. __変数に数値などデータを保存して使う__](basics/variables)  
+  [動くスケッチ・ソースコード](basics/variables/sketch)
 
 ## カリキュラム
 
