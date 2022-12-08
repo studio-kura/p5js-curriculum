@@ -9,6 +9,8 @@ layout: home
 
 - [1. __p5.js入門　p5.jsを始めよう！__](intro/introduction)  
   [動くスケッチ・ソースコード](intro/introduction/sketch)
+- [2. __p5.js入門　 変数について__](intro/variables)  
+  [動くスケッチ・ソースコード](intro/variables/sketch)
 
 ## 基礎（リファレンス）
 
