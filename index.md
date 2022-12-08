@@ -5,7 +5,12 @@
 layout: home
 ---
 
-## 基礎
+## 入門
+
+- [1. __p5.js入門　p5.jsを始めよう！__](intro/introduction)  
+  [動くスケッチ・ソースコード](intro/introduction/sketch)
+
+## 基礎（リファレンス）
 
 - [1. __キャンバスサイズ createCanvas__](basics/createCanvas)  
   [動くスケッチ・ソースコード](basics/createCanvas/sketch)
