@@ -15,6 +15,8 @@ layout: home
   [動くスケッチ・ソースコード](intro/conditionals/sketch)
 - [4. __p5.js入門　forループを使ってみよう！__](intro/loops)  
   [動くスケッチ・ソースコード](intro/loops/sketch)
+- [5. __p5.js入門　動き（1）__](intro/animation)  
+  [動くスケッチ・ソースコード](intro/animation/sketch)
 
 ## 基礎（リファレンス）
 
