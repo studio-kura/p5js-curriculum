@@ -11,6 +11,8 @@ layout: home
   [動くスケッチ・ソースコード](intro/introduction/sketch)
 - [2. __p5.js入門　 変数について__](intro/variables)  
   [動くスケッチ・ソースコード](intro/variables/sketch)
+- [2. __p5.js入門　条件分岐__](intro/conditionals)  
+  [動くスケッチ・ソースコード](intro/conditionals/sketch)
 
 ## 基礎（リファレンス）
 
