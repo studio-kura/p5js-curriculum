@@ -17,6 +17,8 @@ layout: home
   [動くスケッチ・ソースコード](intro/loops/sketch)
 - [5. __p5.js入門　動き（1）__](intro/animation)  
   [動くスケッチ・ソースコード](intro/animation/sketch)
+- [6. __p5.js 入門　関数__](intro/functions)  
+  [動くスケッチ・ソースコード](intro/functions/sketch)
 
 ## 基礎（リファレンス）
 
